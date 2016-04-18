@@ -23,7 +23,6 @@
     </header><!-- .entry-header -->
 
     <div class="entry-content">
-        {# TODO: move read_more to a context variable #}
         {% set read_more = __('Continue reading %s <span class="meta-nav">&rarr;</span>', '_t')|format('<span class="screen-reader-text">' ~ post.title ~ '</span>') %}
         {{ post.get_preview(50, false, read_more) }}
 

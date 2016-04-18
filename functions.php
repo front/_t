@@ -21,11 +21,31 @@ class UnderTimberSite extends TimberSite {
 	 * @inheritDoc
 	 */
 	public function __construct() {
-		add_theme_support( 'menus' );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+		add_action( 'init', array( $this, 'register_post_types' ) );
+		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		parent::__construct();
 	}
 
+	/**
+	 * Register custom post types.
+	 */
+	function register_post_types() {
+	}
+
+	/**
+	 * Register custom taxonomies.
+	 */
+	function register_taxonomies() {
+	}
+
+	/**
+	 * Add values to the universal Timber context.
+	 *
+	 * @param array $context
+	 *
+	 * @return array $context
+	 */
 	function add_to_context($context) {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
